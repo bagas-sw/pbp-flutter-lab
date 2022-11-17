@@ -90,3 +90,16 @@ Navigator mengatur stack of route dan menyediakan dua cara untuk mengatur stack 
 ### Implementasi checklist
 
 1.  Membuat tiga tombol navigasi pada drawer
+<br></br>
+<img width="410" alt="image" src="https://user-images.githubusercontent.com/79742726/202338739-927e19af-04cc-4c92-87b0-e866b3877388.png">
+<br></br>
+
+2.  Membuat halaman form
+<br></br>
+<img width="438" alt="image" src="https://user-images.githubusercontent.com/79742726/202338888-bd5b2f83-ed17-43fe-9f2b-fa638bbb0ebf.png">
+<br></br>
+
+3.  Membuat halaman data budget
+<br></br>
+<img width="393" alt="image" src="https://user-images.githubusercontent.com/79742726/202339067-303eadda-beab-4bb7-86a6-b5672a932629.png">
+<br></br>
