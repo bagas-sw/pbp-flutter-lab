@@ -1,6 +1,8 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:counter_7/formBudget.dart';
+import 'package:counter_7/dataBudget.dart';
+import 'package:counter_7/drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Program Counter',
+      title: 'Demo Flutter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -54,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }else{
       return false;
     }
-
   }
 
   @override
@@ -63,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      drawer: MyDrawer(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -88,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Visibility(
             visible: !_checkZero(),
               child: FloatingActionButton(
+                heroTag: "btn1",
                 onPressed: _decrementCounter,
                 tooltip: 'Decrement',
                 child: const Icon(Icons.remove),
@@ -96,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             Expanded(child: Container()),
             FloatingActionButton(
+              heroTag: "btn2",
               onPressed: _incrementCounter,
               tooltip: 'Increment',
               child: const Icon(Icons.add),

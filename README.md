@@ -56,3 +56,37 @@ sehingga framework akan memanggil method build() untuk reload UI.
       <br></br>
       <img width="436" alt="image" src="https://user-images.githubusercontent.com/79742726/200927662-ff975d66-bce3-4b87-9568-899ed2a1a4ca.png">
       <br></br>
+
+---
+---
+
+# Tugas 8
+
+## Soal
+### Apa perbedaan Navigator.push dan Navigator.pushReplacement ?
+*   Navigator.push itu berfungsi untuk menambahkan route baru ke stack navigasi.
+*   Sedangkan, Navigator.pushReplacement itu berfungsi untuk mengganti route yang ada di stack navigasi dengan route baru.
+
+### Widget yang dipakai dan fungsinya
+*   Container: widget yang berfungsi sebagai container untuk menampung widget lainnya
+
+*   Form: widget yang berfungsi untuk membuat form
+
+*   Column: widget yang berfungsi untuk menampung widget lainnya secara vertikal
+
+*   ListTile: row yang menampung teks sebagai leading dan trailing
+
+*   Drawer: widget yang berfungsi untuk membuat drawer di sisi kiri layar (untuk navigasi)
+
+### Jenis event pada flutter
+*   onTap: event yang terjadi ketika widget di tap
+*   onPressed: event yang terjadi ketika widget di tekan
+*   onChanged: event yang terjadi ketika widget diubah
+*   onSaved: event yang terjadi ketika widget disimpan
+
+### Cara kerja Navigator saat mengganti halaman aplikasi
+Navigator mengatur stack of route dan menyediakan dua cara untuk mengatur stack of route, yaitu declarative dan imperative. Declarative menggunakan Navigator.pages, sedangkan imperative Navigator.push dan Navigator.pop.
+
+### Implementasi checklist
+
+1.  Membuat tiga tombol navigasi pada drawer
