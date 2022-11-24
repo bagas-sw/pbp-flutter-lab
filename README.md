@@ -115,15 +115,16 @@ Bisa, namun pengambilan data JSON akan lebih baik jika dibuat model terlebih dah
 
 ### Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
 
-*   	Scaffold : Widget yang digunakan untuk membuat layout pada flutter
-*   	ListTile : Row yang menampung teks sebagai leading dan trailing
-*   	ListView : Widget yang dapat di scroll tidak seperti widget Column
-*   	Checkbox : Widget yang berfungsi untuk membuat checkbox
-*   	Drawer : Widget yang digunakan untuk membuat navigation drawer
-*   	TextButton : Widget yang berfungsi untuk membuat button
-*  	FutureBuilder : Widget yang berfungsi untuk menampilkan data yang diambil dari API
-*	CircularProgressIndicator : Widget yang digunakan untuk menampilkan loading (lingkaran berputar)
-*	Dan, masih ada beberapa lagi.
+- Scaffold : Widget yang digunakan untuk membuat layout pada flutter
+- ListTile : Row yang menampung teks sebagai leading dan trailing
+- ListView : Widget yang dapat di scroll tidak seperti widget Column
+- Checkbox : Widget yang berfungsi untuk membuat checkbox
+- Drawer : Widget yang digunakan untuk membuat navigation drawer
+- TextButton : Widget yang berfungsi untuk membuat button
+- FutureBuilder : Widget yang berfungsi untuk menampilkan data yang diambil dari API
+- CircularProgressIndicator : Widget yang digunakan untuk menampilkan loading (lingkaran berputar)
+
+Dan, masih ada beberapa lagi.
 
 ### Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
 Data diambil menggunakan HTTP dalam fungsi 'fetchWatchlist' yang memanggil fungsi get dengan instance HTTP. Fungsi mengembalikan daftar objek 'MyWatchlist'. 'FutureBuilder' akan memanggil fungsi dan menunggu responsnya. Ketika data diambil, 'FutureBuilder' mengembalikan 'ListView.builder' yang membangun 'ListTiles' yang berisi data yang dipetakan yang kita dapatkan dari fungsi 'fetchWatchlist'.
