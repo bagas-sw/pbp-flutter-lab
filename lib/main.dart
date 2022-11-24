@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:counter_7/formBudget.dart';
-import 'package:counter_7/dataBudget.dart';
-import 'package:counter_7/drawer.dart';
+import 'package:counter_7/page/formBudget.dart';
+import 'package:counter_7/page/dataBudget.dart';
+import 'package:counter_7/widgets/drawer.dart';
 
 void main() {
   runApp(const MyApp());
