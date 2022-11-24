@@ -103,3 +103,71 @@ Navigator mengatur stack of route dan menyediakan dua cara untuk mengatur stack 
 <br></br>
 <img width="393" alt="image" src="https://user-images.githubusercontent.com/79742726/202339067-303eadda-beab-4bb7-86a6-b5672a932629.png">
 <br></br>
+
+---
+---
+
+# Tugas 9
+
+## Soal
+### Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+Bisa, namun pengambilan data JSON akan lebih baik jika dibuat model terlebih dahulu karena model akan memudahkan kita dalam mengambil data JSON yang kita inginkan. Selain itu, pengambilan data tanpa model sangat vurnerable terhadap error karena kita tidak tahu data apa saja yang akan kita ambil.
+
+### Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya.
+
+*   Scaffold : Widget yang digunakan untuk membuat layout pada flutter
+*   ListTile : Row yang menampung teks sebagai leading dan trailing
+*   ListView : Widget yang dapat di scroll tidak seperti widget Column
+*   Checkbox : Widget yang berfungsi untuk membuat checkbox
+*   Drawer : Widget yang digunakan untuk membuat navigation drawer
+*   TextButton : Widget yang berfungsi untuk membuat button
+*   FutureBuilder : Widget yang berfungsi untuk menampilkan data yang diambil dari API
+*   CircularProgressIndicator : Widget yang digunakan untuk menampilkan loading (lingkaran berputar)
+Dan, masih ada beberapa lagi.
+
+### Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter.
+Data diambil menggunakan HTTP dalam fungsi 'fetchWatchlist' yang memanggil fungsi get dengan instance HTTP. Fungsi mengembalikan daftar objek 'MyWatchlist'. 'FutureBuilder' akan memanggil fungsi dan menunggu responsnya. Ketika data diambil, 'FutureBuilder' mengembalikan 'ListView.builder' yang membangun 'ListTiles' yang berisi data yang dipetakan yang kita dapatkan dari fungsi 'fetchWatchlist'.
+
+### Implementation
+1. Buat 'mywatchlist.dart' dan buat kelas 'MyWatchlist'.
+2. Buat 'fetchWatchlist.dart' dan buat fungsi untuk mengambil data dari API.
+   ```dart
+    Future<List<MyWatchlist>> fetchWatchlist() async {
+      var url = Uri.parse('https://bagas-tugas-django.herokuapp.com/mywatchlist/json/');
+      var response = await http.get(
+        url,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      );
+
+      // Melakukan decode response menjadi bentuk json
+      var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+      // Melakukan konversi data json menjadi object MyWatchlist
+      List<MyWatchlist> listMyWatchlist = [];
+      for (var d in data) {
+        if (d != null) {
+          listMyWatchlist.add(MyWatchlist.fromJson(d));
+        }
+      }
+      return listMyWatchlist;
+    }
+	```
+3. Buat 'watchlist.dart' dan buat 'MyWatchlistPage StatefulWidget' yang berisi 'FutureBuilder' yang mengambil data menggunakan fungsi 'fetchWatchlist'.
+4. Buat 'watchlistDetail.dart' dan buat 'MyWatchlistDetailPage StatelessWidget' yang menampilkan data yang akan diteruskan dari 'MyWatchlistPage'.
+5. Teruskan data dari 'MyWatchlistPage' ke 'MyWatchlistDetailPage' menggunakan 'Navigator.push'.
+6. Buat widget 'CheckBox' dan fungsi 'onChanged' untuk Bonus.
+    ```dart
+    trailing: Checkbox(
+      activeColor: Colors.limeAccent,
+      checkColor: Colors.black,
+      value: snapshot.data![index].fields.watched,
+      onChanged: (bool? value) {
+        setState(() {
+          snapshot.data![index].fields.watched = value!;
+        });
+      },
+    ),
+	```
