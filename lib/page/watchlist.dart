@@ -32,7 +32,7 @@ class _MyWatchlistState extends State<MyWatchlistPage> {
                   return Column(
                     children: const [
                       Text(
-                        "Tidak ada watch list :(",
+                        "Watchlist tidak ditemukan :(",
                         style:
                             TextStyle(color: Color(0xff59A5D8), fontSize: 20),
                       ),
